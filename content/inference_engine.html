@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="title" content="DOUZONE">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="No-Cache" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Document</title>
+
+    <!-- plugin -->
+    <link rel="stylesheet" href="../resources/plugin/mCustomScrollbar/jquery.mCustomScrollbar.min.css">
+    <script type="text/javascript" src="../../resources/plugin/jquery/jquery.min.js"></script>
+    <script src="../resources/plugin/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
+</head>
+<style>
+    /* -폰트 시작 */
+    @font-face {
+        font-family: 'nanum-square-r';
+        src: url('../resources/fonts/nanum-square/nanumsquarer.eot');
+        src: url('../resources/fonts/nanum-square/nanumsquarer.eot?#iefix') format('embedded-opentype'),
+        url('../resources/fonts/nanum-square/nanumsquarer.ttf') format('truetype'),
+        url('../resources/fonts/nanum-square/NanumSquareR.woff') format('woff'),
+        url('../resources/fonts/nanum-square/nanumsquarer.svg#nanumsquarerregular') format('svg');
+        font-weight: 400;
+        }
+        @font-face {
+        font-family: 'nanum-square-b';
+        src: url('../resources/fonts/nanum-square/nanumsquareb.eot');
+        src: url('../resources/fonts/nanum-square/nanumsquareb.eot?#iefix') format('embedded-opentype'),
+        url('../resources/fonts/nanum-square/nanumsquareb.ttf') format('truetype'),
+        url('../resources/fonts/nanum-square/NanumSquareB.woff') format('woff'),
+        url('../resources/fonts/nanum-square/nanumsquareb.svg#nanumsquarebregular') format('svg');
+        font-weight: 700;
+        }
+        @font-face {
+        font-family: 'nanum-square-eb';
+        src: url('../resources/fonts/nanum-square/nanumsquareeb.eot');
+        src: url('../resources/fonts/nanum-square/nanumsquareeb.eot?#iefix') format('embedded-opentype'),
+        url('../resources/fonts/nanum-square/nanumsquareeb.ttf') format('truetype'),
+        url('../resources/fonts/nanum-square/NanumSquareeb.woff') format('woff');
+        font-weight: 900;
+        }
+
+    /* -폰트 끝 */
+    * {
+        margin-top: 0;
+        margin-bottom: 0;
+        list-style-type: none;
+        text-decoration: none;
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        box-sizing: border-box;
+        font-family: 'nanum-square-r';
+        font-weight: 400;
+        background: #ededed;
+    }
+
+    #body-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    @media screen and (max-width:1366px) {
+        #body-wrap {
+            display: block;
+        }
+    }
+
+    #content-wrap {
+        background: #fff;
+        width: 1366px;
+        min-width: 1366px;
+        height: 768px;
+        position: relative;
+    }
+
+
+
+    /* 헤더 */
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px;
+        border-bottom: 1px solid #C7CED4;
+        background: #fff;
+    }
+
+    .header-content__left {
+        display: flex;
+        align-items: center;
+    }
+
+    .header-content {
+        display: flex;
+        align-items: center;
+    }
+
+    .header-content__title {
+        font-size: 20px;
+        line-height: 28px;
+        letter-spacing: -1px;
+        font-weight: bold;
+        margin-left: 20px;
+    }
+
+    .ic-left {
+        margin-right: 10px;
+    }
+
+    .sub-title {
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 23px;
+        letter-spacing: -0.5px;
+    }
+
+    .icon-txt {
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 24px;
+        letter-spacing: -0.02em;
+        color: #818D9B;
+        margin-left: 5px;
+    }
+
+    .header-content__right {
+        display: flex;
+        align-items: center;
+    }
+
+    .header-content__category a {
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+    }
+
+    /* 헤더 끝 */
+
+    /* 타이틀  */
+    .question-head__txt {
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 28px;
+        letter-spacing: -1px;
+        margin-bottom: 4px;
+        color: #818d9b;
+    }
+
+    .question-head__desc {
+        font-size: 11px;
+        line-height: 16px;
+        letter-spacing: -0.5px;
+        color: #818d9b;
+    }
+
+
+
+    /* 이 위에 까지는 모든 페이지 공통입니다 */
+
+
+    /* 아이콘 */
+    .icon-lock-engine {
+        background: url(../resources/images/icon-lock.svg);
+        width: 11px;
+        height: 14px;
+        margin-left: 5px;
+    }
+
+
+
+    .inference-engine__wrap {
+        height: calc(100% - 64px);
+        background: #EDF3F5;
+    }
+
+    .inference-engine__view {
+        display: flex;
+    }
+
+    .inference-engine__question {
+        width: 580px;
+        padding: 18px 20px 53px 40px;
+        border-right: 1px solid #C7CED4;
+        float: left;
+        height: 439px;
+    }
+
+    .inference-engine__question-box {
+        margin-top: 20px;
+        background: #F6F8FA;
+        border-radius: 4px;
+        width: 520px;
+        height: 80px;
+        padding: 14px 46px;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 26px;
+        text-align: center;
+        letter-spacing: -1px;
+    }
+
+    .engine-block__wrap {
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    .engine-block__list-first {
+        display: flex;
+        margin-top: 8px;
+    }
+
+    .engine-block__list-second {
+        display: flex;
+        margin-top: 12px;
+    }
+
+    .engine-block__item-container {
+        background: rgba(233, 237, 240, 0.18);
+        box-shadow: 0px -1px 5px rgba(16, 42, 65, 0.2);
+        border-radius: 10px;
+        width: 340px;
+        height: 52px;
+        position: relative;
+    }
+
+    .engine-block__item--active {
+        position: absolute;
+        width: 340px;
+        height: 52px;
+        background: #F5FFDE;
+        box-shadow: 0px 4px 8px rgba(16, 42, 65, 0.078);
+        border-radius: 10px;
+        text-align: center;
+        font-size: 16px;
+        line-height: 52px;
+        font-weight: bold;
+    }
+
+    .engine-block__item {
+        position: absolute;
+        width: 340px;
+        height: 52px;
+        background: #E9EDF0;
+        box-shadow: 0px 4px 8px rgba(16, 42, 65, 0.078);
+        border-radius: 10px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 52px;
+        color:#818D9B
+    }
+
+    .inference-engine__rules {
+        float: left;
+        margin-left: -1px;
+        width: 785px;
+        padding: 18px 40px 53px 40px;
+        height: 439px;
+    }
+
+    .engine-rules__wrap {
+        margin-top: 20px;
+        background: #F6F8FA;
+        ;
+        box-sizing: border-box;
+        border-radius: 10px;
+        padding: 13px 28px 9px 29px;
+        border: 3px solid #E3E6EF;
+    }
+
+    .engine-rules__wrap:hover,
+    .engine-rules__wrap.hover {
+        background: linear-gradient(180deg, rgba(16, 222, 185, 0.1) 13.54%, rgba(106, 219, 151, 0.1) 90.1%);
+        border: 3px solid #10DEB9;
+    }
+
+    .rules-base-img {
+        width: 648px;
+        height: 287px;
+    }
+
+    .inference-engine__result {
+        width: 100%;
+        padding: 20px 40px 25px 40px;
+        border-top: 1px solid #C7CED4;
+        margin-top: -1px;
+        min-height:264px;
+    }
+
+    .engine-result__wrap {
+        width:1266px;
+        margin-top: 8px;
+        margin-left: 20px;
+        background: #FFFFFF;
+        border: 2px solid #E3E6EF;
+        border-radius: 10px;
+    }
+
+
+    .eingne-result__div--first {
+        display: flex;
+        align-items: center;
+    }
+
+    .engine-result__badge {
+        width: 100px;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        background: #10DEB9;
+        border-radius: 6.31827px;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        letter-spacing: -0.5px;
+    }
+
+    .icon-plus-engine {
+        width: 14px;
+        height: 14px;
+        background: url(../resources/images/icon-plus-engine.svg) no-repeat center center;
+        padding: 0 34px;
+    }
+
+    .engine-result__question-wrap{
+        display: flex;
+        flex-direction: column;
+        flex:0 0 360px;
+        width:360px;
+    }
+
+    .engine-result__question {
+        background: #F5FFDE;
+        box-shadow: 1px 3px 3px rgba(17, 15, 113, 0.1);
+        border-radius: 10px;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        letter-spacing: -0.02em;
+        width:360px;
+        height:60px;
+    }
+
+    .icon-arrowRight-engine{
+        width: 104px;
+        height: 20px;
+        background: url(../resources/images/icon-arrowRight-engine.svg) no-repeat center center;
+        margin: 0 23px 0 21px;
+    }
+
+    .engine-result__infer{
+        background: #FFFFFF;
+        box-shadow: 1px 3px 3px rgba(17, 15, 113, 0.1);
+        border-radius: 10px;
+        width:360px;
+        height:60px;
+        line-height: 60px;
+        font-size: 16px;
+        letter-spacing: -0.02em;
+        text-align: center;
+        font-weight: bold;
+    }
+
+    .eingne-result__div--etc{
+        display:flex;
+        align-items: center;
+        margin-top:20px;
+    }
+
+    .engine-result__question--double-first{
+        margin-bottom:4px;
+        background: #F5FFDE;
+        box-shadow: 1px 3px 3px rgba(17, 15, 113, 0.1);
+        border-radius: 8px;
+        width:360px;
+        height:28px;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 28px;
+        letter-spacing: -0.02em;
+        text-align: center;
+    }
+
+    .engine-result__question--double{
+        background: #F5FFDE;
+        box-shadow: 1px 3px 3px rgba(17, 15, 113, 0.1);
+        border-radius: 8px;
+        width:360px;
+        height:28px;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 28px;
+        letter-spacing: -0.02em;
+        text-align: center;
+
+    }
+
+    .engine-result__wrap--active{
+        width: 1266px;
+        margin-top: 8px;
+        margin-left: 20px;
+        
+        border-radius: 10px; border: 2px solid transparent; background-image: linear-gradient(#fff, #fff), linear-gradient(to top, #6ADB97 50%, #10DEB9 50%); background-clip: content-box, border-box; border-image-slice: 1; position: relative; background-origin: border-box; 
+    }
+
+    .engine-result__box{
+        min-height: 117px;
+        margin: 18px 111px 22px 111px;
+    }
+
+
+    /* //커스텀 스크롤바 기본 속성을 죽이는 css입니다 */
+    .mCSB_inside>.mCSB_container{
+        margin:0!important;
+    }
+
+
+
+    /* 정답 일경우 */
+    .popup-correct {
+        background: linear-gradient(180deg, rgb(255 255 255 / 0%) 65%, rgb(16 222 185 / 50%) 100%);
+        width: 100%;
+        height: calc(100% - 64px);
+        position: absolute;
+        left: 0;
+        top: 65px;
+        z-index: 12;
+    }
+
+    /* 정답 일경우 메세지영역 */
+    .popup__message--correct {
+        width: 614px;
+        height: 214px;
+        background: #10DEB9;
+        border-radius: 20px;
+        position: absolute;
+        top: 20.21%;
+        left: 50%;
+        transform: translateX(-50%);
+        padding-top: 31px;
+        padding-bottom: 39px;
+        padding-right: 46px;
+        box-sizing: border-box;
+        display: flex;
+        position: relative;
+        border: 3px dashed #fff;
+    }
+
+
+    /* 정답 메세지 > 이미지 */
+    .message__image--correct {
+        width: 193.84px;
+        margin-left: 69px;
+        margin-right: 20px;
+        position: relative;
+    }
+
+    /* 정답 메세지 > 텍스트 영역 */
+    .message__text-area--correct {
+        width: calc(100% - 193.84px);
+        margin-top: 11px;
+    }
+
+    /* 정답 메세지 > 텍스트 영역 > 텍스트 */
+    .message__text--correct {
+        width: 100%;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 20px;
+        letter-spacing: -1px;
+        margin-bottom: 24px;
+        height: 54px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* 정답 사람 이미지 */
+    .popup__img--correct {
+        position: absolute;
+        right: 110px;
+        bottom: 0;
+    }
+
+    /* 정답  파티클 이미지 */
+    .popup__img--correct-fireflake {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+    }
+
+    /* 정답 버튼 */
+    .correct-button {
+        width: 160px;
+        height: 55px;
+        background: rgba(255, 255, 255, 0.3);;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 23px;
+        outline: 0;
+        border: 0;
+        color: #fff;
+        margin: auto;
+    }
+</style>
+
+
+<body>
+    <div id="body-wrap">
+        <div id="content-wrap">
+            <header>
+                <div class="header-content__left">
+                    <div class="header-content">
+                        <i class="ic-left"> <img src="/resources/images/ic_left_arrow.png" alt="뒤로가기"> </i>
+                        <p class="sub-title">읽기자료</p>
+                    </div>
+                    <h1 class="header-content__title">실습: 추론 엔진을 이용해보자 !</h1>
+                </div>
+                <div class="header-content__right">
+                    <div class="header-content__category">
+                        <a href="">
+                            <img src="/resources/images/ic_hint.png" alt="힌트보기">
+                            <p class="icon-txt">힌트</p>
+                        </a>
+                    </div>
+                    <div class="header-content__category">
+                        <a href="">
+                            <img src="/resources/images/ic_training.png" alt="실습안내보기">
+                            <p class="icon-txt">실습안내</p>
+                        </a>
+                    </div>
+                </div>
+            </header>
+            <div class="inference-engine__wrap">
+                    <div class="scroll-y-dark" style="max-height:100%">
+                    <div class="inference-engine__view">
+                        <div class="inference-engine__question">
+                            <p class="question-head__txt">문제 1.</p>
+                            <p class="question-head__desc">아래 문제를 읽고 실습을 풀어보세요.</p>
+                            <div class="inference-engine__question-box">
+                                다음 사실들을 차례대로<br> 오른쪽의 지식 베이스에 끌어넣어 추론 엔진을 점화시켜보세요.
+                            </div>
+                            <div class="engine-block__wrap">
+                                <div class="sub-title">사실블록</div>
+                                <div class="engine-block__list-first">
+                                    <div class="engine-block__item-container">
+                                        <div class="engine-block__item--active">사실 A: 코그니의 음성에서 ‘치직 소리가 난다.</div>
+                                    </div>
+                                </div>
+                                <div class="engine-block__list-second">
+                                    <div class="engine-block__item-container">
+                                        <div class="engine-block__item">사실 B: 코그니는 열이 40도다.</div>
+                                    </div>
+                                    <i class="icon-lock-engine"></i>
+                                </div>
+                                <div class="engine-block__list-second">
+                                    <div class="engine-block__item-container">
+                                        <div class="engine-block__item">사실 C: ⓐ 백신을 사용한다.</div>
+                                    </div>
+                                    <i class="icon-lock-engine"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="inference-engine__rules">
+                            <p class="question-head__txt">지식 베이스 (규칙)</p>
+                            <p class="question-head__desc">왼쪽의 사실블록을 지식베이스에 끌어 넣어보세요.</p>
+                            <div class="engine-rules__wrap">
+                                <img src="../resources/images/rules-base.svg" alt="" class="rules-base-img">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inference-engine__result">
+                        <p class="question-head__txt">추론 엔진</p>
+                        <p class="question-head__desc">주어진 사실과 지식 베이스의 규칙을 이용해 새로운 사실을 찾아냅니다.</p>
+                        <div class="engine-result__wrap">
+                            <!-- 규칙3까지 추론이 다 된경우 engine-result__wrap>> engine-result__wrap--active로 클래스 변경해주세요!  -->
+                            <div class="engine-result__box">
+                                <div class="eingne-result__div--first">
+                                    <div class="engine-result__badge">규칙 #1</div>
+                                    <i class="icon-plus-engine"></i>
+                                    <div class="engine-result__question-wrap">
+                                        <div class="engine-result__question">사실 A: 코그니의 음성에서 ‘치직 소리가 난다.</div>
+                                    </div>
+                                    <i class="icon-arrowRight-engine"></i>
+                                    <div class="engine-result__infer">추론된 사실 D: 코그니의 스피커에 오류가 발생했다.</div>
+                                </div>
+                                <div class="eingne-result__div--etc">
+                                    <div class="engine-result__badge">규칙 #2</div>
+                                    <i class="icon-plus-engine"></i>
+                                    <div class="engine-result__question-wrap">
+                                        <div class="engine-result__question--double-first">사실 B: 코그니는 열이 40도다.</div>
+                                        <div class="engine-result__question--double">추론된 사실 D: 코그니의 스피커에 오류가 발생했다.</div>
+                                    </div>
+                                    <i class="icon-arrowRight-engine"></i>
+                                    <div class="engine-result__infer">추론된 사실 E: 코그니가 ⓧ 바이러스에 걸렸다.</div>
+                                </div>
+                                <div class="eingne-result__div--etc">
+                                    <div class="engine-result__badge">규칙 #3</div>
+                                    <i class="icon-plus-engine"></i>
+                                    <div class="engine-result__question-wrap">
+                                        <div class="engine-result__question--double-first">사실 B: 코그니는 열이 40도다.</div>
+                                        <div class="engine-result__question--double">추론된 사실 D: 코그니의 스피커에 오류가 발생했다.</div>
+                                    </div>
+                                    <i class="icon-arrowRight-engine"></i>
+                                    <div class="engine-result__infer">추론된 사실 E: 코그니가 ⓧ 바이러스에 걸렸다.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 정답일경우  -->
+            <!-- <div class="popup-correct" id="popup-correct">
+                <div class="popup__message--correct">
+                    <div class="message__image--correct">
+                        <img src="../../resources/images/icon-popup-correct.svg" alt="정답 이미지">
+                    </div>
+                    <div class="message__text-area--correct">
+                        <div class="message__text--correct">정답이에요 ! 🎉🎉</div>
+                        <button type="button" class="correct-button" onclick="deleteModal();">확인</button>
+                    </div>
+                </div>
+                <img src="../../resources/images/icon-popup-correct-child.svg" alt="" class="popup__img--correct">
+                <img src="../../resources/images/icon-popup-correct-fireflacke.svg" alt="" class="popup__img--correct-fireflake">
+            </div> -->
+        </div>
+    </div>
+    <script>
+        // 커스텀 스크롤 바
+        $(".scroll-y-dark").mCustomScrollbar({
+            theme: "dark"
+        });
+    </script>
+
+</body>
+
+</html>

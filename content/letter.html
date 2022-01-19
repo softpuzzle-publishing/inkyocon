@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* -폰트 시작 */
+    @font-face {
+        font-family: "NanumSquare";
+        font-weight: 100;
+        src: url("../resources/fonts/nanum-square/NanumSquare_acL.ttf") format("TrueType"),
+            url("../resources/fonts/nanum-square/NanumSquareOTF_acL.otf") format("OpenType");
+    }
+
+    @font-face {
+        font-family: "NanumSquare";
+        font-weight: 300;
+        src: url("../resources/fonts/nanum-square/NanumSquareL.ttf") format("TrueType"),
+            url("../resources/fonts/nanum-square/NanumSquareL.otf") format("OpenType");
+    }
+
+    @font-face {
+        font-family: "NanumSquare";
+        font-weight: 400;
+        src: url("../resources/fonts/nanum-square/NanumSquareR.ttf") format("TrueType"),
+            url("../resources/fonts/nanum-square/NanumSquareR.otf") format("OpenType");
+    }
+
+    @font-face {
+        font-family: "NanumSquare";
+        font-weight: 700;
+        src: url("../resources/fonts/nanum-square/NanumSquareB.ttf") format("TrueType"),
+            url("../resources/fonts/nanum-square/NanumSquareB.otf") format("OpenType");
+    }
+
+    @font-face {
+        font-family: "NanumSquare";
+        font-weight: 900;
+        src: url("../resources/fonts/nanum-square/NanumSquareEB.ttf") format("TrueType"),
+            url("../resources/fonts/nanum-square/NanumSquareEB.otf") format("OpenType");
+    }
+
+
+    /* -폰트 끝 */
+    * {
+        margin-top: 0;
+        margin-bottom: 0;
+        list-style-type: none;
+        text-decoration: none;
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        box-sizing: border-box;
+        font-family: 'NanumSquare';
+        font-weight: 400;
+        background: #ededed;
+    }
+
+    #body-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    @media screen and (max-width:1366px) {
+        #body-wrap {
+            display: block;
+        }
+    }
+
+    #content-wrap {
+        background: #fff;
+        width: 1366px;
+        min-width: 1366px;
+        height: 768px;
+        position: relative;
+    }
+
+    /* 헤더 */
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px;
+        border-bottom: 1px solid #C7CED4;
+        background:#fff;
+    }
+
+    .header-content__left {
+        display: flex;
+        align-items: center;
+    }
+
+    .header-content {
+        display: flex;
+        align-items: center;
+    }
+
+    .header-content__title {
+        font-size: 20px;
+        line-height: 28px;
+        letter-spacing: -1px;
+        font-weight: bold;
+        margin-left: 20px;
+    }
+
+    .ic-left {
+        margin-right: 10px;
+    }
+
+    .sub-title {
+        font-size: 14px;
+        font-weight: bold;
+        line-height: 23px;
+        letter-spacing: -0.5px;
+    }
+
+    .icon-txt {
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 24px;
+        letter-spacing: -0.02em;
+        color: #818D9B;
+        margin-left: 5px;
+    }
+
+    .header-content__right {
+        display: flex;
+        align-items: center;
+    }
+
+    .header-content__category a {
+        display: flex;
+        align-items: center;
+        margin-right: 20px;
+    }
+
+    /* 헤더 끝 */
+
+    @page {
+        size: 210mm 297mm;
+        size: A4 landscape;
+        margin: 20mm auto;
+    }
+
+    @media print {
+
+        html,
+        body {
+            margin: 0 auto;
+            padding: 0;
+            page-break-after: avoid;
+            page-break-before: avoid;
+            font-family: 'NanumSquare', ' dotum', 'gulim', sans-serif;
+            -webkit-print-color-adjust: exact;
+            height: auto !important;
+        }
+
+        .no-print-page {
+            display: none;
+        }
+
+        .letter-area {
+            margin: 0;
+            margin: auto !important;
+        }
+
+        .print-body {
+            height: 604px !important;
+            background: transparent !important;
+            margin-top:30mm;
+        }
+    }
+
+    .print-body {
+        width: 100%;
+        height: calc(100% - 64px);
+        background: #EDF3F5;
+    }
+
+    .print-view {
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .letter-area {
+        width: 970px;
+        height: 604px;
+        width: 970px;
+        height: 604px;
+        border: 2px solid #d6dee2;
+        box-sizing: border-box;
+        border-radius: 10px;
+        background: linear-gradient(180deg, rgba(16, 222, 185, 0.3) 13.54%, rgba(106, 219, 151, 0.3) 90.1%);
+        margin-top: 32px;
+        margin-left: 99px;
+        position: relative;
+        padding: 0 14px;
+    }
+
+    .letter-frame {
+        position: absolute;
+    }
+
+    .letter__header {
+        width: 100%;
+        text-align: center;
+        margin-top: 56px;
+    }
+
+    img {
+        display: block;
+        margin: auto;
+    }
+
+    .letter-frame-subImg {
+        margin-top: 12px;
+    }
+
+    .letter__content {
+        background: url(../../resources/images/letter.svg);
+        position: relative;
+        width: 779px;
+        height: 297px;
+        margin: auto;
+        margin-top: 12px;
+    }
+
+    .letter__content-title {
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 28px;
+        text-align: center;
+        letter-spacing: -1px;
+        padding-top: 28px;
+    }
+
+    .letter__textarea {
+        width: 779px;
+        height: 297px;
+        position: absolute;
+        resize: none;
+        border: 2px solid #E3E6EF;
+        box-sizing: border-box;
+        border-radius: 10px;
+        background: transparent;
+        position: absolute;
+        outline: 0;
+        padding: 78px 87px 59px 84px;
+        font-size: 18px;
+        line-height: 31.5px;
+        text-align: center;
+        letter-spacing: -1px;
+        color: #444444;
+        font-family: NanumSquareOTF;
+        top: 0;
+        caret-color: #10DEB9;
+        overflow: hidden;
+    }
+
+    .letter__textarea:focus {
+        border: 2px solid #10DEB9;
+    }
+
+    .letter__textarea:hover {
+        border: 2px solid #10DEB9;
+    }
+
+    .letter-leftChild {
+        position: absolute;
+        left: 61px;
+        bottom: 73px;
+        width: 100px;
+        height: 244px;
+    }
+
+    .letter-rightChild {
+        position: absolute;
+        right: 63px;
+        bottom: 81px;
+    }
+
+    .letter__footer {
+        width: 100%;
+        margin-top: 14px;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 28px;
+        position: absolute;
+    }
+
+    .date-area {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .year-input {
+        width: 66px;
+        height: 40px;
+        background: #F6F8FA;
+        border: 1px solid #E3E6EF;
+        box-sizing: border-box;
+        border-radius: 5px;
+        caret-color: #10DEB9;
+        padding: 0.5rem 0.7rem;
+        outline: 0;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 28px;
+        letter-spacing: -1px;
+    }
+
+    .year-input:focus {
+        border: 1px solid #10DEB9;
+    }
+
+    .year-input:hover {
+        border: 1px solid #10DEB9;
+    }
+
+    .year-suffix {
+        margin-right: 20px;
+        margin-left: 4px;
+    }
+
+    .month-input {
+        width: 48px;
+        height: 40px;
+        background: #F6F8FA;
+        border: 1px solid #E3E6EF;
+        box-sizing: border-box;
+        border-radius: 5px;
+        caret-color: #10DEB9;
+        padding: 0.5rem 0.7rem;
+        outline: 0;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 28px;
+        letter-spacing: -1px;
+    }
+
+    .month-input:focus {
+        border: 1px solid #10DEB9;
+    }
+
+    .month-input:hoaver {
+        border: 1px solid #10DEB9;
+    }
+
+    .month-suffix {
+        margin-right: 12px;
+        margin-left: 4px;
+    }
+
+    .daily-input {
+        width: 48px;
+        height: 40px;
+        background: #F6F8FA;
+        border: 1px solid #E3E6EF;
+        box-sizing: border-box;
+        border-radius: 5px;
+        caret-color: #10DEB9;
+        padding: 0.5rem 0.7rem;
+        outline: 0;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 28px;
+        letter-spacing: -1px;
+    }
+
+    .daily-suffix {
+        margin-left: 4px;
+    }
+
+    .daily-input:focus {
+        border: 1px solid #10DEB9;
+    }
+
+    .daily-input:hover {
+        border: 1px solid #10DEB9;
+    }
+
+    .privacy-area {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 12px;
+    }
+
+    .school-input {
+        width: 160px;
+        height: 40px;
+        background: #F6F8FA;
+        border: 1px solid #E3E6EF;
+        box-sizing: border-box;
+        border-radius: 5px;
+        caret-color: #10DEB9;
+        padding: 0.5rem 0.7rem;
+        outline: 0;
+        margin-left: 5px;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 28px;
+        letter-spacing: -1px;
+        margin-right: 14px;
+    }
+
+    .school-input:focus {
+        border: 1px solid #10DEB9;
+    }
+
+    .school-input:hover {
+        border: 1px solid #10DEB9;
+    }
+
+    .name-input {
+        width: 107px;
+        height: 40px;
+        background: #F6F8FA;
+        border: 1px solid #E3E6EF;
+        box-sizing: border-box;
+        border-radius: 5px;
+        caret-color: #10DEB9;
+        padding: 0.5rem 0.7rem;
+        outline: 0;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 28px;
+        letter-spacing: -1px;
+        margin-left: 5px;
+    }
+
+    .name-input:focus {
+        border: 1px solid #10DEB9;
+    }
+
+    .name-input:hover {
+        border: 1px solid #10DEB9;
+    }
+
+    .print__button-area {
+        margin-left: 40px;
+    }
+
+    .print__information {
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: -0.02em;
+        color: #10DEB9;
+    }
+
+    .letter__button {
+        height: 48px;
+        width: 148px;
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 48px;
+        text-align: center;
+        letter-spacing: -0.02em;
+        background: #10DEB9;
+        display: block;
+        margin-top: 20px;
+        outline: 0;
+        border: 0;
+    }
+
+    .letter__content-box{
+        margin-top: 2.8%;
+    margin-left: 11%;
+    margin-right: 11%;}
+	.letter__content-box .letter__content-desc {    
+        font-size: 18px;
+        margin-bottom: 0;
+         line-height: 32px;
+    }
+
+	canvas {
+		display:none;
+	}
+</style>
+
+<body>
+    <div id="body-wrap">
+        <div id="content-wrap">
+            <header class="no-print-page">
+                <div class="header-content__left">
+                    <div class="header-content">
+                        <i class="ic-left"> <img src="/resources/images/ic_left_arrow.png" alt="뒤로가기"> </i>
+                        <p class="sub-title">읽기자료</p>
+                    </div>
+                    <h1 class="header-content__title">실습2: 컬러로 그리는 그림</h1>
+                </div>
+                <div class="header-content__right">
+                    <div class="header-content__category">
+                        <a href="">
+                            <img src="/resources/images/ic_hint.png" alt="힌트보기">
+                            <p class="icon-txt">힌트</p>
+                        </a>
+                    </div>
+                    <div class="header-content__category">
+                        <a href="">
+                            <img src="/resources/images/ic_training.png" alt="실습안내보기">
+                            <p class="icon-txt">실습안내</p>
+                        </a>
+                    </div>
+                </div>
+            </header>
+            <div class="print-body">
+                <div class="print-view">
+                    <div class="letter-area">
+                        <img src="../../resources/images/letter-frame.svg" alt="편지지 프레임 이미지" class="letter-frame">
+                        <div class="letter__header">
+                            <img src="../../resources/images/letter-title.svg" alt="인공지능 사용 다짐서" class="letter-title">
+                            <img src="../../resources/images/letter-frame-subImg.svg" alt="편지지 프레임 이미지" class="letter-frame-subImg">
+                        </div>
+                        <div class="letter__content">
+                            <p class="letter__content-title">나는 인공지능과 함께하는 삶을 위해 아래와 같이 다짐합니다.</p>
+                            <div class="letter__content-box" id="letter_content">
+                                <p class="letter__content-desc">나는 인공지능과 함께하는 삶을 위해 아래와 같이 다짐합니다.</p>
+                                <p class="letter__content-desc">나는 인공지능과 함께하는 삶을 위해 아래와 같이 다짐합니다.</p>
+                                <p class="letter__content-desc">나는 인공지능과 함께하는 삶을 위해 아래와 같이 다짐합니다.</p>
+                            </div>
+                            <textarea name="" id="" cols="30" rows="5" class="letter__textarea"></textarea>
+                        </div>
+                        <div class="letter__footer">
+                            <div class="date-area">
+                                <input type="text" class="year-input">
+                                <span class="year-suffix">년</span>
+                                <input type="text" class="month-input">
+                                <span class="month-suffix">월</span>
+                                <input type="text" class="daily-input">
+                                <span class="daily-suffix">일</span>
+                            </div>
+                            <div class="privacy-area">
+                                <span>학교명 : </span>
+                                <input type="text" class="school-input">
+                                <span>이름 : </span>
+                                <input type="text" class="name-input">
+                            </div>
+                        </div>
+                        <img src="../../resources/images/letter-leftChild.png" alt="아인 이미지" class="letter-leftChild">
+                        <img src="../../resources/images/letter-rightChild.svg" alt="코그니 이미지" class="letter-rightChild">
+                    </div>
+                    <div class="no-print-page">
+                        <div class="print__button-area">
+                            <div class="print__information">
+                                작성 중 페이지를 벗어나면 <br>내용이 저장되지 않으니<br>주의해주세요!
+                            </div>
+                            <button type="button" class="letter__button">이미지 저장</button>
+                            <button type="button" class="letter__button" onclick="">프린트</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+
+</script>
+
+</html>

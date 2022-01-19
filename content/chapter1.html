@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="title" content="DOUZONE">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="No-Cache" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Document</title>
+
+    <!-- plugin -->
+    <script type="text/javascript" src="../../resources/plugin/jquery/jquery.min.js"></script>
+
+</head>
+<style>
+    /* -폰트 시작 */
+    @font-face {
+        font-family: "NanumSquare";
+        font-weight: 100;
+        src: url("../resources/fonts/nanum-square/NanumSquare_acL.ttf") format("TrueType"),
+             url("../resources/fonts/nanum-square/NanumSquareOTF_acL.otf") format("OpenType");
+    }
+
+    @font-face {
+        font-family: "NanumSquare";
+        font-weight: 300;
+        src: url("../resources/fonts/nanum-square/NanumSquareL.ttf") format("TrueType"),
+             url("../resources/fonts/nanum-square/NanumSquareL.otf") format("OpenType");
+    }
+
+    @font-face {
+        font-family: "NanumSquare";
+        font-weight: 400;
+        src: url("../resources/fonts/nanum-square/NanumSquareR.ttf") format("TrueType"),
+             url("../resources/fonts/nanum-square/NanumSquareR.otf") format("OpenType");
+    }
+
+    @font-face {
+        font-family: "NanumSquare";
+        font-weight: 700;
+        src: url("../resources/fonts/nanum-square/NanumSquareB.ttf") format("TrueType"),
+             url("../resources/fonts/nanum-square/NanumSquareB.otf") format("OpenType");
+    }
+
+    @font-face {
+        font-family: "NanumSquare";
+        font-weight: 900;
+        src: url("../resources/fonts/nanum-square/NanumSquareEB.ttf") format("TrueType"),
+             url("../resources/fonts/nanum-square/NanumSquareEB.otf") format("OpenType");
+    }
+    
+
+    /* -폰트 끝 */
+    * {
+        margin-top: 0;
+        margin-bottom: 0;
+        list-style-type: none;
+        text-decoration: none;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+        box-sizing: border-box;
+        font-family: 'NanumSquare';
+        font-weight: 400;
+        background: #ededed;
+    }
+
+    #body-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    @media screen and (max-width:1366px) {
+        #body-wrap {
+            display: block;
+        }
+    }
+
+    #content-wrap {
+        background: #fff;
+        width: 1366px;
+        min-width: 1366px;
+        height: 768px;
+        position: relative;
+    }
+
+    body.show,
+    body.show * { cursor: none; }
+    body.show .cursor-ball { position: absolute; top: 0; left: 0; width: 28px; height: 28px;  background: url('/resources/images/ic_brush.png')no-repeat 0 0; background-size: 100% 100%; transform: translate(2px, -25px); z-index: 9999; display: block; }
+    .cursor-ball{ display: none;}
+    .border-top-left-radius{border-top-left-radius: 10px;}
+    .border-top-right-radius{border-top-right-radius: 10px;}
+    .border-bottom-left-radius{border-bottom-left-radius: 10px;}
+    .border-bottom-right-radius{border-bottom-right-radius: 10px;}
+
+    .box[data-count='0'] { background-color: #000; color: transparent;}
+    .box[data-count='1'] { background-color: #fff; color: transparent;}
+    .box[data-count='2'] { background-color: #DE0000; color: transparent;}
+    .box[data-count='3'] { background-color: #F59300; color: transparent;}
+    .box[data-count='4'] { background-color: #FFEE00; color: transparent;}
+
+    /* 헤더 */
+    header{display:flex; align-items: center; justify-content: space-between; padding: 18px;  border-bottom:1px solid #C7CED4;         background:#fff;}
+    .header-content__left{display:flex; align-items: center;}
+    .header-content{display: flex; align-items: center;}
+    .header-content__title { font-size: 20px; line-height: 28px; letter-spacing: -1px; font-weight: bold; margin-left: 20px;}
+    .ic-left{ margin-right: 10px;}
+    .sub-title{ font-size: 14px; font-weight: bold; line-height: 23px; letter-spacing: -0.5px;}
+    .icon-txt{font-size: 16px; font-weight: bold; line-height: 24px; letter-spacing: -0.02em; color: #818D9B; margin-left: 5px;}
+
+    .header-content__right{display: flex; align-items: center;}
+    .header-content__category a{display: flex; align-items: center; margin-right: 20px;}
+
+    /* 헤더 끝 */
+
+    /* 문제 */
+    .question{width:100%; height: 176px; background-color:#EDF3F5; position: relative;}
+    .question-desc{position: absolute; left:50%; top:50%; transform: translate(-50%, -50%); background-color: #fff; padding: 23px 31px; border-radius: 4px;}
+    .question-desc__title{font-size:24px; line-height: 33px; font-weight: bold; text-align: center; letter-spacing: -1px; color: #192a3e;}
+    
+    .question-head{padding: 18px 0 0 40px;}
+    .question-head__txt{font-size:20px; font-weight: bold; line-height: 28px; letter-spacing: -1px; margin-bottom: 4px; color:#818d9b;}
+    .question-head__desc{font-size:11px; line-height: 16px; letter-spacing: -0.5px; color:#818d9b;}
+    /* 문제 끝*/
+    
+    /* 보기 */
+    .view{width:100%; display:flex; background-color: #192A3E;}
+    .view-left__content{width: 485px;position: relative; height: 553px; margin-right: 5px;}
+    .view-right__content{width:865px;  margin: 10px 10px 10px 20px; position: relative;     background-color: rgba(129, 141, 155, 0.3); border-radius: 20px;}
+
+    .box-wrap { width: 380px; display: flex; align-items: center; flex-flow: wrap; margin: 10px auto 0;}
+    .box-wrap__answer{ width: 380px; height:350px; display: flex; align-items: center; justify-content: center; flex-flow: wrap; margin: 10px auto 0; background-color: #fff; border-radius: 10px; padding: 5px;}
+
+    .box-wrap.active{display: none;}
+    .box-wrap__answer.active{display: none;}
+    .box { width: 58px; height: 58px; background-color: #fff; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; font-size: 18px; line-height: 26px; letter-spacing: -1px; color: #000;}
+
+    .view-head{padding: 13px 0 0 40px;}
+    .view-head__txt{font-size:20px; font-weight: bold; line-height: 28px; letter-spacing: -1px; margin-bottom: 4px; color: #F6F8FA;}
+    .view-head__desc{font-size:11px; line-height: 16px; letter-spacing: -0.5px; color:#F6F8FA;}
+
+    .color-wrap{display: flex; margin-left: 40px; margin-top: 24px;}
+    .color-wrap__title{ font-size: 18px; font-weight: bold; line-height: 26px; letter-spacing: -1px; color: #192a3e; text-align: center;  margin-top: 7px;}
+    .color-wrap__rgb{width:240px; margin-right: 28px; background-color: rgba(246, 248, 250, 0.7); border-radius: 10px;}
+    .rgb-head{display: flex; border-top-left-radius: 10px; border-top-right-radius: 10px;}
+    .rgb-head__txt{font-size:18px; color: #192A3E;letter-spacing: -1px;line-height: 26px; flex: 0 0 33.3%; text-align: center; padding: 10px 0;}
+    .rgb-body{border-radius: 10px; overflow: hidden; background-color: rgba(246, 248, 250, 0.7);}
+    .rgb-body__content{background-color: #FBFBFB; display: flex; border-top: 1px solid #fff;}
+    .rgb-body__content:first-child{border-top:0;}
+    .rgb-body__color{font-size: 14px; line-height: 23px; text-align: center; letter-spacing: -0.5px; color: #444; flex: 0 0 33.3%; padding: 18px 0; }
+    .crayon{width:100%;display: block;     position: absolute;bottom: 0; left:10px;}
+    .color-wrap__list{width: 100px;  border-radius: 10px; border: 5px solid transparent; background: #fff;}
+    .color-wrap__list.active{
+        background-image: linear-gradient(#fff, #fff), linear-gradient(to right, #10DEBE, #0F63FF, #004AD3); background-clip: content-box, border-box; border-image-slice: 1; background-origin: border-box;
+    }
+    .brush{padding: 0 5px;}
+    .color { text-align: center; padding: 7px 5px; cursor: pointer; border-top:1px solid #E3E6EF; position: relative;}
+    .color.active .none-select-img{display: none;}
+    .color.active .select-img{display: block; margin: 0 auto;}
+    .select-img{display: none;}
+    .color:first-child{border-top:0;}
+    .color-number{position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); font-size: 14px; font-weight: bold; letter-spacing: -0.5px; line-height: 23px; color: #444; z-index: 1;}
+    .color-number.change{color: #fff;}
+    .answer-list{display: flex; align-items: center; justify-content: center; margin-top: 20px;}
+    .answer-list__btn{width: 96px; height: 56px; font-size: 20px; font-weight: bold; letter-spacing: -1px; color: #818d9b;   border-radius: 10px; border: 2px solid transparent; background-image: linear-gradient(#fff, #fff), linear-gradient(to right, #10DEBE 21.4%, #0F63FF 58.97%, #004AD3 71.26%); background-clip: content-box, border-box; border-image-slice: 1; position: relative; background-origin: border-box; font-family: 'NanumSquare'; text-align: center; line-height: 56px;margin:0 14px;}
+
+    .answer-list__btn.active .answer-img{display: block;}
+    .answer-img{display:none; background: url('/resources/images/answer.png')50% 50% no-repeat; position: absolute; width:100%; height:100%; top:0; left:0; background-color: rgba(16, 222, 185, 0.1);}
+
+    
+    /* 보기 끝*/ 
+
+    /* 오답일경우 수정수정*/ 
+    .popup-incorrect {
+        background: rgba(25, 42, 62, 0.7); width:1366px; height:730px; position:absolute; left: 50%; top: 64px; z-index: 12; display: none; transform: translateX(-50%);
+    }
+
+    /* 오답 일경우 메세지영역 */
+    .popup__message--incorrect {
+        width: 614px; height: 214px; background: #F6F8FA; border-radius: 20px; position: absolute; top: 20.21%; left: 50%;
+        transform: translateX(-50%); padding-top: 31px; padding-bottom: 39px; padding-right: 46px; box-sizing: border-box; display: flex;
+    }
+
+    /* 오답 메세지 > 이미지 */
+    .message__image--incorrect {
+        width: 193.84px; margin-left: 60px; margin-right: 52px; position: relative;
+    }
+
+    /* 오답 메세지 > 텍스트 영역 */
+    .message__text-area--incorrect {
+        width: calc(100% - 193.84px); margin-top: 11px;
+    }
+    
+    /* 오답 메세지 > 텍스트 영역 > 텍스트 */
+    .message__text--incorrect {
+        width: 100%; font-style: normal; font-weight: bold; font-size: 20px; letter-spacing: -1px; margin-bottom: 24px; height: 54px; display: flex; align-items: center; justify-content: center;
+    }
+
+
+    /* 오답 버튼 */
+    .incorrect-button {
+        width: 160px; height: 55px; background-color: #10DEB9; border-radius: 20px; display: flex; flex-direction: row; justify-content: center;
+        align-items: center; font-style: normal; font-weight: bold; font-size: 14px; line-height: 23px; outline: 0; border: 0; color: #fff; margin: auto; cursor: pointer;
+    }
+
+    /* 오답 사람 이미지 */
+    .popup__img--incorrect {
+        position: absolute; right: 86px; bottom: 40px;
+    }
+
+
+    /* 정답 일경우 */
+    .popup-correct {
+        background: linear-gradient(180deg, rgba(25, 42, 62, 0.7) 65%, rgb(16 222 185 / 50%) 100%); width: 1366px; height:730px; position:absolute; left: 50%; top: 64px;z-index: 12;transform: translateX(-50%);
+    }
+
+    /* 정답 일경우 메세지영역 */
+    .popup__message--correct {
+        width: 614px; height: 214px; background: #10DEB9; border-radius: 20px; position: absolute; top: 20.21%; left: 50%;
+        transform: translateX(-50%); padding-top: 31px; padding-bottom: 39px; padding-right: 46px; box-sizing: border-box; display: flex;
+        position:relative; border:3px dashed #fff;
+    }
+
+
+    /* 정답 메세지 > 이미지 */
+    .message__image--correct {
+        width: 193.84px; margin-left: 69px; margin-right: 20px;  position: relative;
+    }
+
+    /* 정답 메세지 > 텍스트 영역 */
+    .message__text-area--correct {
+        width: calc(100% - 193.84px); margin-top: 11px;
+    }
+
+    /* 정답 메세지 > 텍스트 영역 > 텍스트 */
+    .message__text--correct {
+        width: 100%; font-style: normal; font-weight: bold; font-size: 20px; letter-spacing: -1px; margin-bottom: 24px; height: 54px; display: flex; align-items: center; justify-content: center;
+    }
+
+    /* 정답 사람 이미지 */
+    .popup__img--correct {
+        position: absolute; right: 110px; bottom: 0;
+    }
+
+    /* 정답  파티클 이미지 */
+    .popup__img--correct-fireflake{
+        position: absolute; right:0; bottom:0;
+    }
+
+    /* 정답 버튼 */
+    .correct-button {
+        width: 160px;
+        height: 55px;
+        background: rgba(255, 255, 255, 0.3);;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 23px;
+        outline: 0;
+        border: 0;
+        color: #fff;
+        margin: auto;
+    }
+
+</style>
+
+
+<body>
+    <div class="cursor-ball" id="cursor"></div>
+    <div id="body-wrap">
+        <div id="content-wrap">
+            <header>
+                <div class="header-content__left">
+                    <div class="header-content"> 
+                        <i class="ic-left"> <img src="/resources/images/ic_left_arrow.png" alt="뒤로가기"> </i>
+                        <p class="sub-title">읽기자료</p>
+                    </div>
+                    <h1 class="header-content__title">실습2: 컬러로 그리는 그림</h1>
+                </div>
+                <div class="header-content__right">
+                    <div class="header-content__category">
+                        <a href="">
+                            <img src="/resources/images/ic_hint.png" alt="힌트보기">
+                            <p class="icon-txt">힌트</p>
+                        </a>
+                    </div>
+                    <div class="header-content__category">
+                        <a href="">
+                            <img src="/resources/images/ic_training.png" alt="실습안내보기">
+                            <p class="icon-txt">실습안내</p>
+                        </a>
+                    </div>
+                </div>
+            </header>
+            <div class="content">
+                <div class="question">
+                    <div class="question-head">
+                        <p class="question-head__txt">문제</p>
+                        <p class="question-head__desc">아래 문제를 읽고 실습을 풀어보세요.</p>
+                    </div>
+                    <div class="question-desc">
+                        <p class="question-desc__title">왼쪽에서 알맞은 색깔을 선택해서 픽셀에 색깔을 채워주세요 !</p>
+                    </div>
+                </div>
+            </div>
+            <div class="view" id="wrap">
+                <div class="view-left__content">
+                    <div class="view-head">
+                        <p class="view-head__txt">보기</p>
+                        <p class="view-head__desc">보기 중 하나를 선택해 오른쪽의 정답칸에 클릭해보세요.</p>
+                    </div>
+                    <div class="color-wrap">
+                        <div class="color-wrap__rgb">
+                            <div class="rgb-head">
+                                <p class="rgb-head__txt">빨강</p>
+                                <p class="rgb-head__txt">초록</p>
+                                <p class="rgb-head__txt">파랑</p>
+                            </div>
+                            <div class="rgb-body">
+                                <div class="rgb-body__content">
+                                    <p class="rgb-body__color">0</p>
+                                    <p class="rgb-body__color">0</p>
+                                    <p class="rgb-body__color">0</p>
+                                </div>
+                                <div class="rgb-body__content">
+                                    <p class="rgb-body__color">255</p>
+                                    <p class="rgb-body__color">255</p>
+                                    <p class="rgb-body__color">255</p>
+                                </div>
+                                <!-- <div class="rgb-body__content">
+                                    <p class="rgb-body__color">255</p>
+                                    <p class="rgb-body__color">0</p>
+                                    <p class="rgb-body__color">0</p>
+                                </div>
+                                <div class="rgb-body__content">
+                                    <p class="rgb-body__color">255</p>
+                                    <p class="rgb-body__color">128</p>
+                                    <p class="rgb-body__color">0</p>
+                                </div>
+                                <div class="rgb-body__content">
+                                    <p class="rgb-body__color">255</p>
+                                    <p class="rgb-body__color">255</p>
+                                    <p class="rgb-body__color">0</p>
+                                </div> -->
+                            </div>
+                        </div>
+                        <div class="color-wrap__list active">
+                            <p class="color-wrap__title">색깔</p>
+                            <div class="brush" id="brush">
+                                <div class="color" id="color-b" onclick="blackColor(0)">
+                                    <p class="color-number change">0</p>
+                                    <img src="/resources/images/colorpic_b.svg" class="none-select-img" alt="검은색깔">
+                                    <img src="/resources/images/colorpic_b_cliked.svg" class="select-img" alt="검은색깔선택">
+                                </div>
+                                <div class="color" id="color-w" onclick="whiteColor(1);">
+                                    <p class="color-number">1</p>
+                                    <img src="/resources/images/colorpic_w.svg" class="none-select-img" alt="흰색깔">
+                                    <img src="/resources/images/colorpic_w_cliked.svg" class="select-img" alt="흰색깔선택">
+                                </div>
+                                <!-- <div class="color" id="color-r" onclick="redColor(2);">
+                                    <p class="color-number change">2</p>
+                                    <img src="/resources/images/colorpic_r.svg" class="none-select-img" alt="빨간색깔">
+                                    <img src="/resources/images/colorpic_r_cliked.svg" class="select-img" alt="빨간색깔선택">
+                                </div>
+                                <div class="color" id="color-o" onclick="orangeColor(3);">
+                                    <p class="color-number">3</p>
+                                    <img src="/resources/images/colorpic_o.svg" class="none-select-img" alt="주황색깔">
+                                    <img src="/resources/images/colorpic_o_cliked.svg" class="select-img" alt="주황색깔선택">
+                                </div>
+                                <div class="color" id="color-y" onclick="yellowColor(4);">
+                                    <p class="color-number">4</p>
+                                    <img src="/resources/images/colorpic_y.svg" class="none-select-img" alt="노랑색깔">
+                                    <img src="/resources/images/colorpic_y_cliked.svg" class="select-img" alt="노랑색깔선택">
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <img src="/resources/images/crayon.png" alt="크레파스" class="crayon">
+                </div>
+                <div class="view-right__content">
+                    <div class="view-head">
+                        <p class="view-head__txt">정답 칸을 채워주세요.</p>
+                        <p class="view-head__desc">칸을 클릭해 색깔을 채워보세요.</p>
+                    </div>
+                    <div class="box-wrap">
+                        <a href="javascript:void(0);" class="box border-top-left-radius" onclick="clickBox(this)">0</a>
+                        <a href="javascript:void(0);" class="box" onclick="clickBox(this)">0</a>
+                        <a href="javascript:void(0);" class="box" onclick="clickBox(this)">4</a>
+                        <a href="javascript:void(0);" class="box" onclick="clickBox(this)">0</a>
+                        <a href="javascript:void(0);" class="box" onclick="clickBox(this)">0</a>
+                        <a href="javascript:void(0);" class="box border-top-right-radius" onclick="clickBox(this)">0</a>
+                        <a href="javascript:void(0);" class="box" onclick="clickBox(this)">0</a>
+                        <a href="javascript:void(0);" class="box" onclick="clickBox(this)">4</a>
+                        <a href="javascript:void(0);" class="box" onclick="clickBox(this)">2</a>
+                        <a href="javascript:void(0);" class="box" onclick="clickBox(this)">0</a>
+                        <a href="javascript:void(0);" class="box" onclick="clickBox(this)">0</a>
+                        <a href="javascript:void(0);" class="box" onclick="clickBox(this)">0</a>
+                        <a href="javascript:void(0);" class="box" onclick="clickBox(this)">4</a>
+                        <a href="javascript:void(0);" class="box" onclick="clickBox(this)">0</a>
+                        <a href="javascript:void(0);" class="box" onclick="clickBox(this)">0</a>
+                        <a href="javascript:void(0);" class="box" onclick="clickBox(this)">0</a>
+                        <a href="javascript:void(0);" class="box" onclick="clickBox(this)">1</a>
+                        <a href="javascript:void(0);" class="box" onclick="clickBox(this)">4</a>
+                        <a href="javascript:void(0);" class="box" onclick="clickBox(this)">1</a>
+                        <a href="javascript:void(0);" class="box" onclick="clickBox(this)">0</a>
+                        <a href="javascript:void(0);" class="box" onclick="clickBox(this)">3</a>
+                        <a href="javascript:void(0);" class="box" onclick="clickBox(this)">3</a>
+                        <a href="javascript:void(0);" class="box" onclick="clickBox(this)">3</a>
+                        <a href="javascript:void(0);" class="box" onclick="clickBox(this)">3</a>
+                        <a href="javascript:void(0);" class="box" onclick="clickBox(this)">3</a>
+                        <a href="javascript:void(0);" class="box" onclick="clickBox(this)">0</a>
+                        <a href="javascript:void(0);" class="box" onclick="clickBox(this)">3</a>
+                        <a href="javascript:void(0);" class="box" onclick="clickBox(this)">3</a>
+                        <a href="javascript:void(0);" class="box" onclick="clickBox(this)">3</a>
+                        <a href="javascript:void(0);" class="box" onclick="clickBox(this)">0</a>
+                        <a href="javascript:void(0);" class="box border-bottom-left-radius" onclick="clickBox(this)">3</a>
+                        <a href="javascript:void(0);" class="box" onclick="clickBox(this)">0</a>
+                        <a href="javascript:void(0);" class="box" onclick="clickBox(this)">3</a>
+                        <a href="javascript:void(0);" class="box" onclick="clickBox(this)">3</a>
+                        <a href="javascript:void(0);" class="box" onclick="clickBox(this)">3</a>
+                        <a href="javascript:void(0);" class="box border-bottom-right-radius" onclick="clickBox(this)">0</a>
+                    </div>
+                    <div class="box-wrap__answer active">
+                        <img src="/resources/images/2-2_house.png" alt="정답 집"  width="340px" height="340px">
+                        <img src="/resources/images/answer_boat.svg" alt="정답 배" width="340px" height="340px">
+                    </div>
+                    <div class="answer-list">
+                        <a href="javascript:void(0);" class="answer-list__btn" onclick="choiceAnswer()">
+                            비행기
+                            <div class="answer-img"></div>
+                        </a>
+                        <a href="javascript:void(0);" class="answer-list__btn" onclick="choiceAnswer()">
+                            배
+                            <div class="answer-img"></div>
+                        </a>
+                        <a href="javascript:void(0);" class="answer-list__btn" onclick="choiceAnswer()">
+                            자동차
+                            <div class="answer-img"></div>
+                        </a>
+                        <a href="javascript:void(0);" class="answer-list__btn" onclick="choiceAnswer()">
+                            기차
+                            <div class="answer-img"></div>
+                        </a>
+                    </div>
+                </div>
+        
+            </div>
+            <!-- 오답일경우 -->
+            <div class="popup-incorrect" id="popup-incorrect">
+                <div class="popup__message--incorrect">
+                    <div class="message__image--incorrect">
+                        <img src="../../resources/images/icon-popup-incorrect.svg" alt="오답 이미지">
+                    </div>
+                    <div class="message__text-area--incorrect">
+                        <div class="message__text--incorrect">다시 한 번 생각해보세요 !</div>
+                        <button type="button" class="incorrect-button" onclick="deleteModal();">확인</button>
+                    </div>
+                </div>
+                <img src="../../resources/images/icon-popup-incorrect-child.svg" alt="" class="popup__img--incorrect">
+            </div>
+            <!-- 정답일경우  -->
+            <!-- <div class="popup-correct " id="popup-correct">
+                <div class="popup__message--correct">
+                    <div class="message__image--correct">
+                        <img src="../../resources/images/icon-popup-correct.svg" alt="정답 이미지">
+                    </div>
+                    <div class="message__text-area--correct">
+                        <div class="message__text--correct">정답이에요! 🎉🎉</div>
+                         <button type="button" class="correct-button" onclick="deleteModal();">확인</button>
+                    </div>
+                </div>
+                <img src="../../resources/images/icon-popup-correct-child.svg" alt="" class="popup__img--correct">
+                <img src="../../resources/images/icon-popup-correct-fireflacke.svg" alt="" class="popup__img--correct-fireflake">
+            </div> -->
+        </div>
+    </div>
+    <script>
+      
+        var body = document.body;
+        var cursorNum = document.getElementById('cursor');
+        
+        window.addEventListener('mousemove', e => {
+            cursorNum.style.top = e.pageY + 'px';
+            cursorNum.style.left = e.pageX + 'px';
+        });
+
+        // 상자클릭
+        const clickBox = function(idx){
+            let num = idx.innerText;
+            let count = cursorNum.dataset.count;
+            console.log(count);
+            if (num == count) {
+                event.target.setAttribute('data-count', num);
+            } else {
+                let failPopup = document.getElementById('popup-incorrect');
+                failPopup.style.display = "block";
+            }
+
+        }
+
+        var black = document.getElementById('color-b');
+        var white = document.getElementById('color-w');
+        var red = document.getElementById('color-r');
+        var orange = document.getElementById('color-o');
+        var yellow = document.getElementById('color-y');
+
+        var siblings = t => [...t.parentElement.children].filter(e => e != t);
+
+        // 컬러클릭
+
+        const changeColor = (idx) => {
+            // cursorNum.setAttribute('data-count', idx);
+            console.log(idx);
+            idx.classList.add('active');
+
+            var brush = document.getElementById('brush');
+
+            var brushArray = t => [...t.parentElement.children].filter(e => e != t);
+            console.log(brushArray);
+            
+
+
+            siblings(idx).forEach(function(el){
+                el.classList.remove('active');
+            })
+        }
+
+        const blackColor = (idx) => {
+            body.classList.add("show");
+            cursorNum.setAttribute('data-count', idx);
+            black.classList.add('active');
+            
+            siblings(black).forEach(function(el){
+                el.classList.remove('active');
+            })
+        }
+        const whiteColor = (idx) => {
+            body.classList.add("show");
+            cursorNum.setAttribute('data-count', idx);
+            white.classList.add('active');
+
+            siblings(white).forEach(function(el){
+                el.classList.remove('active');
+            })
+        }
+        const redColor = (idx) => {
+            body.classList.add("show");
+            cursorNum.setAttribute('data-count', idx);
+            red.classList.add('active');
+            
+            siblings(red).forEach(function(el){
+                el.classList.remove('active');
+            })
+        }
+        const orangeColor = (idx) => {
+            body.classList.add("show");
+            cursorNum.setAttribute('data-count', idx);
+            orange.classList.add('active');
+
+            siblings(orange).forEach(function(el){
+                el.classList.remove('active');
+            })
+        }
+        const yellowColor = (idx) => {
+            body.classList.add("show");
+            cursorNum.setAttribute('data-count', idx);
+            yellow.classList.add('active');
+
+            siblings(yellow).forEach(function(el){
+                el.classList.remove('active');
+            })
+        }
+
+        //팝업 닫기
+        const deleteModal = () => {
+            let failPopup = document.getElementById('popup-incorrect');
+            let successPopup = document.getElementById('popup-incorrect');
+           
+            failPopup.style.display = "none";
+            successPopup.style.display = "none";
+        }
+
+        // 정답선택
+        const choiceAnswer = () => {
+            event.target.classList.add('active');
+        }
+    </script>
+
+</body>
+
+</html>
