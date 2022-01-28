@@ -1,0 +1,603 @@
+/* ======================================== */
+/* 페이지 공통 스타일 */
+/* ======================================== */
+
+/* -폰트 시작 */
+@font-face {
+    font-family: 'nanum-square-r';
+    src: url('../fonts/nanum-square/nanumsquarer.eot');
+    src: url('../fonts/nanum-square/nanumsquarer.eot?#iefix') format('embedded-opentype'),
+        url('../resources/fonts/nanum-square/nanumsquarer.ttf') format('truetype'),
+        url('../fonts/nanum-square/NanumSquareR.woff') format('woff'),
+        url('../fonts/nanum-square/nanumsquarer.svg#nanumsquarerregular') format('svg');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'nanum-square-b';
+    src: url('../fonts/nanum-square/nanumsquareb.eot');
+    src: url('../fonts/nanum-square/nanumsquareb.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/nanum-square/nanumsquareb.ttf') format('truetype'),
+        url('../fonts/nanum-square/NanumSquareB.woff') format('woff'),
+        url('../fonts/nanum-square/nanumsquareb.svg#nanumsquarebregular') format('svg');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'nanum-square-eb';
+    src: url('../fonts/nanum-square/nanumsquareeb.eot');
+    src: url('../fonts/nanum-square/nanumsquareeb.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/nanum-square/nanumsquareeb.ttf') format('truetype'),
+        url('../fonts/nanum-square/NanumSquareeb.woff') format('woff');
+    font-weight: 900;
+}
+
+/* -폰트 끝 */
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    box-sizing: border-box;
+    font-family: 'nanum-square-r';
+    font-weight: 400;
+}
+
+#body-wrap {
+    width: 100%;
+    min-width: 1280px;
+    height: calc(100vh - 1px);
+    min-height: 768px;
+    position: relative;
+}
+
+
+/* 헤더 */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px;
+    border-bottom: 1px solid #C7CED4;
+    background: #fff;
+}
+
+header .header-content__left {
+    display: flex;
+    align-items: center;
+}
+
+header .header-content {
+    display: flex;
+    align-items: center;
+}
+
+header .header-content__title {
+    font-size: 20px;
+    line-height: 28px;
+    letter-spacing: -1px;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+header .ic-left {
+    margin-right: 10px;
+}
+
+header .sub-title {
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 23px;
+    letter-spacing: -0.5px;
+}
+
+header .icon-txt {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 24px;
+    letter-spacing: -0.02em;
+    color: #818D9B;
+    margin-left: 5px;
+}
+
+header .header-content__right {
+    display: flex;
+    align-items: center;
+}
+
+header .header-content__category a {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+
+/* 공통 타이틀  */
+.question-head__txt {
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 28px;
+    letter-spacing: -1px;
+    margin-bottom: 4px;
+    color: #818d9b;
+}
+
+/* 공통 디스크립션  */
+.question-head__desc {
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: -0.5px;
+    color: #818d9b;
+}
+
+/* 컨텐트 바디 */
+#content {
+    height: calc(100% - 64px);
+}
+
+
+
+/* 오답일경우 수정수정*/
+.popup-incorrect {
+    background: rgba(25, 42, 62, 0.7);
+    width: 100%;
+    height: calc(100vh - 64px);
+    position: absolute;
+    left: 50%;
+    top: 64px;
+    z-index: 12;
+    display: none;
+    transform: translateX(-50%);
+}
+
+/* 오답 일경우 메세지영역 */
+.popup__message--incorrect {
+    width: 614px;
+    height: 214px;
+    background: #F6F8FA;
+    border-radius: 20px;
+    position: absolute;
+    top: 20.21%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 31px;
+    padding-bottom: 39px;
+    padding-right: 46px;
+    box-sizing: border-box;
+    display: flex;
+}
+
+/* 오답 메세지 > 이미지 */
+.message__image--incorrect {
+    width: 193.84px;
+    margin-left: 60px;
+    margin-right: 52px;
+    position: relative;
+}
+
+/* 오답 메세지 > 텍스트 영역 */
+.message__text-area--incorrect {
+    width: calc(100% - 193.84px);
+    margin-top: 11px;
+}
+
+/* 오답 메세지 > 텍스트 영역 > 텍스트 */
+.message__text--incorrect {
+    width: 100%;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: -1px;
+    margin-bottom: 24px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* 오답 버튼 */
+.incorrect-button {
+    width: 160px;
+    height: 55px;
+    background-color: #10DEB9;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 23px;
+    outline: 0;
+    border: 0;
+    color: #fff;
+    margin: auto;
+    cursor: pointer;
+}
+
+/* 오답 사람 이미지 */
+.popup__img--incorrect {
+    position: absolute;
+    right: 86px;
+    bottom: 40px;
+}
+
+
+/* 정답 일경우 */
+.popup-correct {
+    display:none;
+    background: rgb(25,42,62);
+    background: linear-gradient(180deg, rgba(25,42,62,0.7) 56%, rgba(16,222,185,0.9) 100%);
+    width: 100vw;
+    height: calc(100vh - 64px);
+    position: absolute;
+    left: 50%;
+    top: 64px;
+    z-index: 12;
+    transform: translateX(-50%);
+}
+
+/* 정답 일경우 메세지영역 */
+.popup__message--correct {
+    width: 614px;
+    height: 214px;
+    background: #10DEB9;
+    border-radius: 20px;
+    position: absolute;
+    top: 20.21%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-top: 31px;
+    padding-bottom: 39px;
+    padding-right: 46px;
+    box-sizing: border-box;
+    display: flex;
+    position: relative;
+    border: 3px dashed #fff;
+}
+
+
+/* 정답 메세지 > 이미지 */
+.message__image--correct {
+    width: 193.84px;
+    margin-left: 69px;
+    margin-right: 20px;
+    position: relative;
+}
+
+/* 정답 메세지 > 텍스트 영역 */
+.message__text-area--correct {
+    width: calc(100% - 193.84px);
+    margin-top: 11px;
+}
+
+/* 정답 메세지 > 텍스트 영역 > 텍스트 */
+.message__text--correct {
+    width: 100%;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: -1px;
+    margin-bottom: 24px;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* 정답 사람 이미지 */
+.popup__img--correct {
+    position: absolute;
+    right: 110px;
+    bottom: 0;
+}
+
+/* 정답  파티클 이미지 */
+.popup__img--correct-fireflake {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+/* 정답 버튼 */
+.correct-button {
+    width: 160px;
+    height: 55px;
+    background: rgba(255, 255, 255, 0.3);
+    ;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 23px;
+    outline: 0;
+    border: 0;
+    color: #fff;
+    margin: auto;
+}
+
+
+
+
+
+
+
+/* ======================================== */
+/* ======================================== */
+/* 초등 저 데이터시각화(유형3) */
+/* ======================================== */
+
+.graph_elementary_wrap {
+    display: flex;
+    height: 100%;
+}
+
+.question-wrap {
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #EDF3F5;
+
+    >div {
+        width: 537px;
+        height: 694px;
+
+        .question-box {
+            background: rgba(246, 248, 250, 1);
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 18px;
+            color: #192A3E;
+            width: 100%;
+            padding: 27px 0;
+            text-align: center;
+            margin-top: 16px;
+        }
+
+        img {
+            width: 336px;
+            display: block;
+            margin: 24px auto 0 auto;
+        }
+    }
+}
+
+.explanation-wrap {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #192A3E url(../images/graph_ele_back.svg);
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    &.success {
+        .total-question-box{
+            opacity:1!important;
+        }
+        .answer-box{
+            opacity:1!important;
+        }
+    }
+
+    >.explanation-content {
+        width: 768px;
+        height: 515px;
+        position: relative;
+        z-index: 1;
+
+        .total-question-box {
+            background: #C7CED4;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            line-height: 26px;
+            padding: 14px 0;
+            font-weight: bold;
+            margin: 26px auto 38px auto;
+            width: 520px;
+            opacity: 0;
+            transition: opacity 0.2s ease-in-out;
+
+            input {
+                background: #FBFBFB;
+                border: 1px solid #818D9B;
+                box-sizing: border-box;
+                border-radius: 4px;
+                margin: 0 10px;
+                width: 80px;
+                height: 32px;
+
+                &:focus {
+                    outline: 0;
+                }
+            }
+        }
+
+        .explanation-box {
+
+            width: 643.45px;
+            height: 341.35px;
+            background: #fff;
+            border: 1.70676px solid #E3E6EF;
+            box-sizing: border-box;
+            border-radius: 10.2406px;
+            margin: auto;
+            background: #fff url(../images/graph_ele_graph.svg);
+            background-repeat: no-repeat;
+            background-size: 94%;
+            background-position: 45px 19px;
+            position: relative;
+
+            &::before {
+                clear: both;
+                display: block;
+                content: '';
+            }
+
+            .button-wrap {
+                width: 535px;
+                height: 252px;
+                display: inline-block;
+                margin-top: 37px;
+                margin-right: 45px;
+                float: right;
+
+                .button-box {
+                    width: 100%;
+                    height: 99.2%;
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    .rec {
+                        width: calc(100% / 15);
+                        height: calc(100% / 7);
+                        position: relative;
+
+                        input {
+                            position: absolute;
+                            background: #C7CED4;
+                            border: 1.43385px solid #F6F8FA;
+                            width: 15px;
+                            height: 15px;
+                            border-radius: 50%;
+                            appearance: none;
+                            cursor: pointer;
+                            right: -8px;
+                            top: -8px;
+                            z-index: 2;
+
+                            &:checked {
+                                background: #0F63FF;
+                                border: 1.68019px solid #FFFFFF;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .foot {
+                width: calc(100% - 588px);
+                height: 252px;
+                display: inline-flex;
+                position: relative;
+                float: left;
+
+                >p {
+                    font-size: 14px;
+                    line-height: 23px;
+                    color: #999999;
+                    position: absolute;
+                    transform: rotate(-90deg);
+                    width: max-content;
+                    left: -28px;
+                    top: 45%;
+                }
+
+                >div {
+                    position: absolute;
+                    right: 0;
+                    font-weight: bold;
+                    font-size: 16px;
+                    line-height: 24px;
+                    letter-spacing: -0.02em;
+                    margin-top: 24px;
+
+                    >p {
+                        margin-bottom: 12px;
+                    }
+                }
+            }
+
+            .height {
+                width: 570px;
+                margin-left: calc(100% - 583px);
+
+                >div {
+                    font-weight: bold;
+                    font-size: 16px;
+                    line-height: 24px;
+                    letter-spacing: -0.02em;
+                    padding-left: 20px;
+
+                    span {
+                        margin-left: 4px;
+                    }
+                }
+
+                >p {
+                    font-size: 14px;
+                    line-height: 23px;
+                    color: #999999;
+                    text-align: center;
+                }
+
+            }
+        }
+    }
+
+    .answer-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.2s ease-in-out;
+        opacity: 0;
+
+        &::before {
+            content: '';
+            background: rgba(25, 42, 62, 0.5);
+            width: 60%;
+            height: calc(100% - 64px);
+            display: block;
+            position: absolute;
+            z-index: 0;
+            top: 64px;
+            right: 0;
+        }
+
+        button {
+            background: #10DEB9;
+            width: 148px;
+            height: 48px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 24px;
+            text-align: center;
+            letter-spacing: -0.02em;
+            color: #444444;
+            display: block;
+            border: 0;
+            z-index: 2;
+            margin-top: 48px;
+            font-family: 'nanum-square-r';
+            cursor: pointer;
+
+            &:focus {
+                outline: 0;
+                border: 0;
+            }
+
+            &:nth-child(1) {
+                margin-right: 20px;
+            }
+        }
+    }
+}
