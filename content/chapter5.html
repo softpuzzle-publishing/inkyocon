@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="title" content="DOUZONE">
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="No-Cache" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Document</title>
+    <!-- 스타일 css  -->
+    <link rel="stylesheet" href="../resources/css/style.css">
+    <script>
+        function dragstart_handler(ev) {
+            console.log("dragStart");
+            ev.dataTransfer.setData("text", ev.target.id);
+            ev.effectAllowed = "copyMove";
+        }
+
+        function dragover_handler(ev) {
+            console.log("dragOver");
+            ev.preventDefault();
+        }
+        function dragend_handler(ev) {
+            console.log("dragEnd");
+            ev.dataTransfer.clearData();
+        }
+    </script>
+</head>
+
+<body>
+    <div id="body-wrap-720">
+        <header>
+            <div class="header-content__left">
+                <div class="header-content">
+                    <a href="javascript:void(0);" onclick="window.history.back();"><i class="ic-left"> <img src="/resources/images/ic_left_arrow.png" alt="뒤로가기"> </i></a>
+                    <p class="sub-title">읽기자료</p>
+                </div>
+                <h1 class="header-content__title">실습: 내 주변에서 데이터를 찾아보자!</h1>
+            </div>
+            <div class="header-content__right">
+                <div class="header-content__category">
+                    <a href="">
+                        <img src="/resources/images/ic_training.png" alt="실습안내보기">
+                        <p class="icon-txt">실습안내</p>
+                    </a>
+                </div>
+            </div>
+        </header>
+        <div id="content">
+            <div class="chapter4-wrap">
+                <div class="chapter4-wrap__question">
+                    <div>
+                        <div class="question-head__txt">문제</div>
+                        <div class="question-head__desc">아래 문제를 읽고 실습을 풀어보세요.</div>
+                        <div class="question-box">
+                            <p class="question-box__txt">아래의 표는 2020년 월별 기온 정보와 해당 월의 아이스크림 판매량을 나타낸 것입니다. </p>
+                            아래 데이터의 버튼을 드래그해 오른쪽 그래프의 x축에 놓아보세요!
+                        </div>
+
+                        <table class="table chapter-4__table ">
+                            <colgroup>
+                                <col width="20%">
+                                <col width="20%">
+                                <col width="20%">
+                                <col width="20%">
+                                <col width="20%">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th>월</th>
+                                    <th>
+                                        <div class="btn-off">평균기온 (°C)</div>
+                                        <div class="average-btn-on" draggable="true" id="src_move" ondragstart="dragstart_handler(event);" ondragend="dragend_handler(event);">평균기온 (°C)</div>
+                                    </th>
+                                    <th>
+                                        <div class="btn-off">최고기온 (°C)</div>
+                                        <div class="maximum-btn-on">최고기온 (°C)</div>
+                                    </th>
+                                    <th>
+                                        <div class="btn-off">최저기온 (°C)</div>
+                                        <div class="lowest-btn-on">최저기온 (°C)</div>
+                                    </th>
+                                    <th>아이스크림<br>판매량(만건)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="b-color">1월</td>
+                                    <td>1.6</td>
+                                    <td>11.9</td>
+                                    <td>-6.5</td>
+                                    <td>35</td>
+                                </tr>
+                                <tr>
+                                    <td class="b-color">2월</td>
+                                    <td>2.5</td>
+                                    <td>15.6</td>
+                                    <td>-11.8</td>
+                                    <td>49</td>
+                                </tr>
+                                <tr>
+                                    <td class="b-color">3월</td>
+                                    <td>1.6</td>
+                                    <td>20.6</td>
+                                    <td>-2.8</td>
+                                    <td>90</td>
+                                </tr>
+                                <tr>
+                                    <td class="b-color">4월</td>
+                                    <td>11.1</td>
+                                    <td>23.8</td>
+                                    <td>1.9</td>
+                                    <td>87</td>
+                                </tr>
+                                <tr>
+                                    <td class="b-color">5월</td>
+                                    <td>18</td>
+                                    <td>30</td>
+                                    <td>18</td>
+                                    <td>75</td>
+                                </tr>
+                                <tr>
+                                    <td class="b-color">6월</td>
+                                    <td>23.9</td>
+                                    <td>35.4</td>
+                                    <td>9.2</td>
+                                    <td>100</td>
+                                </tr>
+                                <tr>
+                                    <td class="b-color">7월</td>
+                                    <td>24.1</td>
+                                    <td>32.9</td>
+                                    <td>14.8</td>
+                                    <td>82</td>
+                                </tr>
+                                <tr>
+                                    <td class="b-color">8월</td>
+                                    <td>26.5</td>
+                                    <td>34.5</td>
+                                    <td>17.2</td>
+                                    <td>81</td>
+                                </tr>
+                                <tr>
+                                    <td class="b-color">9월</td>
+                                    <td>21.4</td>
+                                    <td>29.5</td>
+                                    <td>13.6</td>
+                                    <td>82</td>
+                                </tr>
+                                <tr>
+                                    <td class="b-color">10월</td>
+                                    <td>14.3</td>
+                                    <td>23.6</td>
+                                    <td>3.2</td>
+                                    <td>67</td>
+                                </tr>
+                                <tr>
+                                    <td class="b-color">11월</td>
+                                    <td>2.5</td>
+                                    <td>20</td>
+                                    <td>-3.6</td>
+                                    <td>65</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="chapter4-wrap__explanation">
+                    <!-- 정답 인풋(체크박스)를 다 체크 할경우  .explanation-wrp a에  success 클래스 추가 해주시면 됩니다. -->
+
+                    <div class="explanation-content">
+                        <div class="question-head__txt">점 그래프</div>
+                        <div class="question-head__desc">아래 문제를 읽고 실습을 풀어보세요.</div>
+                        <div class="chapter4-graph">
+                            <div class="chapter4-graph__box">
+                                <img src="/resources/images/chapter4-back.png" alt="그래프" class="graph">
+
+                                <div class="dot-group">
+                                    <div class="dot dot1"></div>
+                                    <div class="dot dot2"></div>
+                                    <div class="dot dot3"></div>
+                                    <div class="dot dot4"></div>
+                                    <div class="dot dot5"></div>
+                                    <div class="dot dot6"></div>
+                                    <div class="dot dot7"></div>
+                                    <div class="dot dot8"></div>
+                                    <div class="dot dot9"></div>
+                                    <div class="dot dot10"></div>
+                                    <div class="dot dot11"></div>
+                                </div>
+                            </div>
+                            <div class="success-btn" id="dest_move" ondrop="drop_handler(event);" ondragover="dragover_handler(event);">
+                                <img src="/resources/images/chapter4-success-btn.png" alt="정답 넣는 곳">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 오답일경우 -->
+        <div class="popup-incorrect" id="popup-incorrect">
+            <div class="popup__message--incorrect">
+                <div class="message__image--incorrect">
+                    <img src="../../resources/images/icon-popup-incorrect.svg" alt="오답 이미지">
+                </div>
+                <div class="message__text-area--incorrect">
+                    <div class="message__text--incorrect">다시 한 번 생각해보세요 !</div>
+                    <button type="button" class="incorrect-button" onclick="deleteModal();">확인</button>
+                </div>
+            </div>
+            <img src="../../resources/images/icon-popup-incorrect-child.svg" alt="" class="popup__img--incorrect">
+        </div>
+        <!-- 정답일경우  -->
+        <div class="popup-correct " id="popup-correct">
+            <div class="popup__message--correct">
+                <div class="message__image--correct">
+                    <img src="../../resources/images/icon-popup-correct.svg" alt="정답 이미지">
+                </div>
+                <div class="message__text-area--correct">
+                    <div class="message__text--correct">정답이에요! 🎉🎉</div>
+                    <button type="button" class="correct-button" onclick="deleteModal();">확인</button>
+                </div>
+            </div>
+            <img src="../../resources/images/icon-popup-correct-child.svg" alt="" class="popup__img--correct">
+            <img src="../../resources/images/icon-popup-correct-fireflacke.svg" alt="" class="popup__img--correct-fireflake">
+        </div>
+    </div>
+
+
+</body>
+
+</html>

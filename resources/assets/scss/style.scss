@@ -139,7 +139,7 @@ header .header-content__category a {
 
 /* 컨텐트 바디 */
 #content {
-    height: calc(100% - 64px);
+    height: calc(100% - 65px);
 }
 
 
@@ -148,7 +148,7 @@ header .header-content__category a {
 .popup-incorrect {
     background: rgba(25, 42, 62, 0.7);
     width: 100%;
-    height: calc(100vh - 64px);
+    height: calc(100vh - 65px);
     position: absolute;
     left: 50%;
     top: 64px;
@@ -351,11 +351,10 @@ header .header-content__category a {
     align-items: center;
     justify-content: center;
     background: #EDF3F5;
-
+    padding: 15px;
     >div {
         width: 537px;
         height: 694px;
-
         .question-box {
             background: rgba(246, 248, 250, 1);
             border-radius: 4px;
@@ -366,6 +365,10 @@ header .header-content__category a {
             padding: 27px 0;
             text-align: center;
             margin-top: 16px;
+
+            .question-box__txt{
+                font-size: 14px; font-weight: bold; line-height: 23px; letter-spacing: -0.5px;
+            }
         }
 
         img {
@@ -400,6 +403,7 @@ header .header-content__category a {
         height: 515px;
         position: relative;
         z-index: 1;
+        padding: 0 15px 15px 15px;
 
         .total-question-box {
             background: #C7CED4;
@@ -599,5 +603,180 @@ header .header-content__category a {
                 margin-right: 20px;
             }
         }
+    }
+}
+
+
+// chapter4 
+#body-wrap-720{
+    width: 100%; min-width: 1280px; height: calc(100vh); min-height: 720px; position: relative;
+}
+.chapter4-wrap{
+    display: flex; height: 100%;   
+}
+.chapter4-wrap__question{
+    width: 50%; display: flex; align-items: center; justify-content: center; background: #EDF3F5;
+
+    >div {
+        width: 593px;
+        .question-box {
+            background: rgba(246, 248, 250, 1); border-radius: 4px; font-weight: bold; font-size: 18px; color: #192A3E; width: 100%; padding: 27px 0; text-align: center; margin-top: 16px;
+            .question-box__txt{
+                font-size: 14px; font-weight: bold; line-height: 23px; letter-spacing: -0.5px;
+            }
+        }
+        img {
+            width: 336px; display: block; margin: 24px auto 0 auto;
+        }
+    }
+}
+.chapter-4__table{
+    width:93%; background-color:#fff; text-align: center; color: #818D9B;
+    font-weight: bold; margin: 30px auto 0; border-collapse: collapse; border-radius: 8px;
+    .b-color{color: #444;}
+    thead{
+        background-color: #F6F8FA; 
+        th{padding: 10px 4px; font-size: 14px; position: relative;}
+        th:first-child{border-top-left-radius: 8px;}
+        th:last-child{border-top-right-radius: 8px;}
+    }
+    tbody{
+        td{padding: 7px 0; border-top: 1px solid #ccc; border-left:1px solid #ddd;}
+        td:nth-child(1){border-left:0;}
+    }
+
+    &.average{
+        tbody{
+            tr:nth-child(1){
+                td:nth-child(2){border-top:2px solid #10DEB9;}
+            }
+            tr{
+                td:nth-child(2){background: rgba(16, 222, 185, 0.07); color: #000; border-left: 2px solid #10DEB9; border-right: 2px solid #10DEB9;}
+            }
+            tr:last-child{
+                td:nth-child(2){
+                    border-bottom: 2px solid #10deb9;
+                }
+            }
+        }
+
+    }
+    &.maximum{
+        tbody{
+            tr:nth-child(1){
+                td:nth-child(3){border-top:2px solid #F7685B;}
+            }
+            tr{
+                td:nth-child(3){background: rgba(247, 104, 91, 0.07); color: #000; border-left: 2px solid #F7685B; border-right: 2px solid #F7685B;}
+            }
+            tr:last-child{
+                td:nth-child(3){
+                    border-bottom: 2px solid #F7685B;
+                }
+            }
+        }
+
+    }
+
+    &.lowest{
+        tbody{
+            tr:nth-child(1){
+                td:nth-child(4){border-top:2px solid #3BC1FF;}
+            }
+            tr{
+                td:nth-child(4){background: rgba(59, 193, 255, 0.07); color: #000; border-left: 2px solid #3BC1FF; border-right: 2px solid #3BC1FF;}
+            }
+            tr:last-child{
+                td:nth-child(4){
+                    border-bottom: 2px solid #3BC1FF;
+                }
+            }
+        }
+
+    }
+
+}
+.btn-off{
+    width: 95%; background: #F6F8FA; box-shadow: 0px -0.8px 4px rgba(16, 42, 65, 0.232); border-radius: 10px; font-weight: bold; font-size: 14px; line-height: 23px; letter-spacing: -0.5px; color: #C7CED4; padding: 7px 14px 6px; position: absolute; top:50%; left:50%; transform: translate(-50%, -50%); z-index: 1;
+}
+.average-btn-on{
+    width:95%; background-color: #10DEB9; color: #192A3E; letter-spacing: -0.5px; font-size:14px; line-height: 23px; font-weight: bold; border-radius: 10px; padding: 7px 14px 6px; box-shadow: 1px 3px 3px rgba(102, 102, 102, 0.15); position: absolute; top:50%; left:50%; transform: translate(-50%, -50%); z-index: 2;
+}
+.maximum-btn-on{
+    width:95%; background-color: #F7685B; color: #192A3E; letter-spacing: -0.5px; font-size:14px; line-height: 23px;font-weight: bold; border-radius: 10px; padding: 7px 14px 6px; box-shadow: 1px 3px 3px rgba(102, 102, 102, 0.15); position: absolute; top:50%; left:50%; transform: translate(-50%, -50%); z-index: 2;
+}
+.lowest-btn-on{
+    width:95%; background-color: #3BC1FF; color: #192A3E; letter-spacing: -0.5px; font-size:14px; line-height: 23px;font-weight: bold; border-radius: 10px; padding: 7px 14px 6px; box-shadow: 1px 3px 3px rgba(102, 102, 102, 0.15); position: absolute; top:50%; left:50%; transform: translate(-50%, -50%); z-index: 2;
+}
+
+.chapter4-wrap__explanation{
+    width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; background-position: bottom center; background-repeat: no-repeat; background-size: contain; background-color: #192A3E;
+    .question-head__txt{color: #FFF;}
+    .question-head__desc{color: #FFF;}
+    
+    .explanation-content{
+        width: 608px;
+    }
+    
+    .chapter4-graph{
+        width:100%; height: 550px; border-radius: 4px; background-color: #fff; margin-top: 15px; position: relative;
+        .success-btn{position: absolute;bottom: 30px; left:50%; transform: translateX(-50%);}
+    }
+    .chapter4-graph__box{
+        width: 528px; height: 403px; position: relative; top: 48%; left:48%; transform: translate(-50%, -50%);
+        .graph{}
+
+        .dot-group{
+            .dot{ width:8px; height:8px; border-radius:50%; position: absolute; box-shadow: 1px 3px 3px rgba(102, 102, 102, 0.15);}
+            &.average{
+                .dot{
+                    background:#12C4A6;
+                    &.dot1{ left: 13%; bottom: 11%;}
+                    &.dot2{ left: 16.5%; bottom: 29%;}
+                    &.dot3{ left: 13%; bottom: 82%;}
+                    &.dot4{ left: 43%; bottom: 78%;}
+                    &.dot5{ left: 63%; bottom: 62.5%;}
+                    &.dot6{ left: 77%; bottom: 95%;}
+                    &.dot7{ left: 77.5%; bottom: 74%;}
+                    &.dot8{ left: 88%; bottom: 72%;}
+                    &.dot9{ left: 72%; bottom: 74%;}
+                    &.dot10{ left: 52%; bottom: 52%;}
+                    &.dot11{ left: 16.5%; bottom: 50%;}
+                }
+            }
+            &.maximum{
+                .dot{
+                    background:#F7685B;
+                    &.dot1{ left: 13%; bottom: 11%;}
+                    &.dot2{ left: 16.5%; bottom: 29%;}
+                    &.dot3{ left: 13%; bottom: 82%;}
+                    &.dot4{ left: 43%; bottom: 78%;}
+                    &.dot5{ left: 63%; bottom: 62.5%;}
+                    &.dot6{ left: 77%; bottom: 95%;}
+                    &.dot7{ left: 77.5%; bottom: 74%;}
+                    &.dot8{ left: 88%; bottom: 72%;}
+                    &.dot9{ left: 72%; bottom: 74%;}
+                    &.dot10{ left: 52%; bottom: 52%;}
+                    &.dot11{ left: 16.5%; bottom: 50%;}
+                }
+            }
+            &.lowest{
+                .dot{
+                    background:#3BC1FF;
+                    &.dot1{ left: 13%; bottom: 11%;}
+                    &.dot2{ left: 16.5%; bottom: 29%;}
+                    &.dot3{ left: 13%; bottom: 82%;}
+                    &.dot4{ left: 43%; bottom: 78%;}
+                    &.dot5{ left: 63%; bottom: 62.5%;}
+                    &.dot6{ left: 77%; bottom: 95%;}
+                    &.dot7{ left: 77.5%; bottom: 74%;}
+                    &.dot8{ left: 88%; bottom: 72%;}
+                    &.dot9{ left: 72%; bottom: 74%;}
+                    &.dot10{ left: 52%; bottom: 52%;}
+                    &.dot11{ left: 16.5%; bottom: 50%;}
+                }
+            }
+        }
+        
     }
 }

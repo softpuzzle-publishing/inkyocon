@@ -42,10 +42,10 @@ header .header-content__category a { display: flex; align-items: center; margin-
 .question-head__desc { font-size: 11px; line-height: 16px; letter-spacing: -0.5px; color: #818d9b; }
 
 /* 컨텐트 바디 */
-#content { height: calc(100% - 64px); }
+#content { height: calc(100% - 65px); }
 
 /* 오답일경우 수정수정*/
-.popup-incorrect { background: rgba(25, 42, 62, 0.7); width: 100%; height: calc(100vh - 64px); position: absolute; left: 50%; top: 64px; z-index: 12; display: none; transform: translateX(-50%); }
+.popup-incorrect { background: rgba(25, 42, 62, 0.7); width: 100%; height: calc(100vh - 65px); position: absolute; left: 50%; top: 64px; z-index: 12; display: none; transform: translateX(-50%); }
 
 /* 오답 일경우 메세지영역 */
 .popup__message--incorrect { width: 614px; height: 214px; background: #F6F8FA; border-radius: 20px; position: absolute; top: 20.21%; left: 50%; transform: translateX(-50%); padding-top: 31px; padding-bottom: 39px; padding-right: 46px; box-sizing: border-box; display: flex; }
@@ -95,11 +95,13 @@ header .header-content__category a { display: flex; align-items: center; margin-
 /* ======================================== */
 .graph_elementary_wrap { display: flex; height: 100%; }
 
-.question-wrap { width: 40%; display: flex; align-items: center; justify-content: center; background: #EDF3F5; }
+.question-wrap { width: 40%; display: flex; align-items: center; justify-content: center; background: #EDF3F5; padding: 15px; }
 
 .question-wrap > div { width: 537px; height: 694px; }
 
 .question-wrap > div .question-box { background: #f6f8fa; border-radius: 4px; font-weight: bold; font-size: 18px; color: #192A3E; width: 100%; padding: 27px 0; text-align: center; margin-top: 16px; }
+
+.question-wrap > div .question-box .question-box__txt { font-size: 14px; font-weight: bold; line-height: 23px; letter-spacing: -0.5px; }
 
 .question-wrap > div img { width: 336px; display: block; margin: 24px auto 0 auto; }
 
@@ -109,7 +111,7 @@ header .header-content__category a { display: flex; align-items: center; margin-
 
 .explanation-wrap.success .answer-box { opacity: 1 !important; }
 
-.explanation-wrap > .explanation-content { width: 768px; height: 515px; position: relative; z-index: 1; }
+.explanation-wrap > .explanation-content { width: 768px; height: 515px; position: relative; z-index: 1; padding: 0 15px 15px 15px; }
 
 .explanation-wrap > .explanation-content .total-question-box { background: #C7CED4; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 18px; line-height: 26px; padding: 14px 0; font-weight: bold; margin: 26px auto 38px auto; width: 520px; opacity: 0; transition: opacity 0.2s ease-in-out; }
 
@@ -156,4 +158,148 @@ header .header-content__category a { display: flex; align-items: center; margin-
 .explanation-wrap .answer-box button:focus { outline: 0; border: 0; }
 
 .explanation-wrap .answer-box button:nth-child(1) { margin-right: 20px; }
+
+#body-wrap-720 { width: 100%; min-width: 1280px; height: calc(100vh); min-height: 720px; position: relative; }
+
+.chapter4-wrap { display: flex; height: 100%; }
+
+.chapter4-wrap__question { width: 50%; display: flex; align-items: center; justify-content: center; background: #EDF3F5; }
+
+.chapter4-wrap__question > div { width: 593px; }
+
+.chapter4-wrap__question > div .question-box { background: #f6f8fa; border-radius: 4px; font-weight: bold; font-size: 18px; color: #192A3E; width: 100%; padding: 27px 0; text-align: center; margin-top: 16px; }
+
+.chapter4-wrap__question > div .question-box .question-box__txt { font-size: 14px; font-weight: bold; line-height: 23px; letter-spacing: -0.5px; }
+
+.chapter4-wrap__question > div img { width: 336px; display: block; margin: 24px auto 0 auto; }
+
+.chapter-4__table { width: 93%; background-color: #fff; text-align: center; color: #818D9B; font-weight: bold; margin: 30px auto 0; border-collapse: collapse; border-radius: 8px; }
+
+.chapter-4__table .b-color { color: #444; }
+
+.chapter-4__table thead { background-color: #F6F8FA; }
+
+.chapter-4__table thead th { padding: 10px 4px; font-size: 14px; position: relative; }
+
+.chapter-4__table thead th:first-child { border-top-left-radius: 8px; }
+
+.chapter-4__table thead th:last-child { border-top-right-radius: 8px; }
+
+.chapter-4__table tbody td { padding: 7px 0; border-top: 1px solid #ccc; border-left: 1px solid #ddd; }
+
+.chapter-4__table tbody td:nth-child(1) { border-left: 0; }
+
+.chapter-4__table.average tbody tr:nth-child(1) td:nth-child(2) { border-top: 2px solid #10DEB9; }
+
+.chapter-4__table.average tbody tr td:nth-child(2) { background: rgba(16, 222, 185, 0.07); color: #000; border-left: 2px solid #10DEB9; border-right: 2px solid #10DEB9; }
+
+.chapter-4__table.average tbody tr:last-child td:nth-child(2) { border-bottom: 2px solid #10deb9; }
+
+.chapter-4__table.maximum tbody tr:nth-child(1) td:nth-child(3) { border-top: 2px solid #F7685B; }
+
+.chapter-4__table.maximum tbody tr td:nth-child(3) { background: rgba(247, 104, 91, 0.07); color: #000; border-left: 2px solid #F7685B; border-right: 2px solid #F7685B; }
+
+.chapter-4__table.maximum tbody tr:last-child td:nth-child(3) { border-bottom: 2px solid #F7685B; }
+
+.chapter-4__table.lowest tbody tr:nth-child(1) td:nth-child(4) { border-top: 2px solid #3BC1FF; }
+
+.chapter-4__table.lowest tbody tr td:nth-child(4) { background: rgba(59, 193, 255, 0.07); color: #000; border-left: 2px solid #3BC1FF; border-right: 2px solid #3BC1FF; }
+
+.chapter-4__table.lowest tbody tr:last-child td:nth-child(4) { border-bottom: 2px solid #3BC1FF; }
+
+.btn-off { width: 95%; background: #F6F8FA; box-shadow: 0px -0.8px 4px rgba(16, 42, 65, 0.232); border-radius: 10px; font-weight: bold; font-size: 14px; line-height: 23px; letter-spacing: -0.5px; color: #C7CED4; padding: 7px 14px 6px; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 1; }
+
+.average-btn-on { width: 95%; background-color: #10DEB9; color: #192A3E; letter-spacing: -0.5px; font-size: 14px; line-height: 23px; font-weight: bold; border-radius: 10px; padding: 7px 14px 6px; box-shadow: 1px 3px 3px rgba(102, 102, 102, 0.15); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2; }
+
+.maximum-btn-on { width: 95%; background-color: #F7685B; color: #192A3E; letter-spacing: -0.5px; font-size: 14px; line-height: 23px; font-weight: bold; border-radius: 10px; padding: 7px 14px 6px; box-shadow: 1px 3px 3px rgba(102, 102, 102, 0.15); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2; }
+
+.lowest-btn-on { width: 95%; background-color: #3BC1FF; color: #192A3E; letter-spacing: -0.5px; font-size: 14px; line-height: 23px; font-weight: bold; border-radius: 10px; padding: 7px 14px 6px; box-shadow: 1px 3px 3px rgba(102, 102, 102, 0.15); position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2; }
+
+.chapter4-wrap__explanation { width: 50%; display: flex; flex-direction: column; align-items: center; justify-content: center; background-position: bottom center; background-repeat: no-repeat; background-size: contain; background-color: #192A3E; }
+
+.chapter4-wrap__explanation .question-head__txt { color: #FFF; }
+
+.chapter4-wrap__explanation .question-head__desc { color: #FFF; }
+
+.chapter4-wrap__explanation .explanation-content { width: 608px; }
+
+.chapter4-wrap__explanation .chapter4-graph { width: 100%; height: 550px; border-radius: 4px; background-color: #fff; margin-top: 15px; position: relative; }
+
+.chapter4-wrap__explanation .chapter4-graph .success-btn { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); }
+
+.chapter4-wrap__explanation .chapter4-graph__box { width: 528px; height: 403px; position: relative; top: 48%; left: 48%; transform: translate(-50%, -50%); }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group .dot { width: 8px; height: 8px; border-radius: 50%; position: absolute; box-shadow: 1px 3px 3px rgba(102, 102, 102, 0.15); }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.average .dot { background: #12C4A6; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.average .dot.dot1 { left: 13%; bottom: 11%; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.average .dot.dot2 { left: 16.5%; bottom: 29%; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.average .dot.dot3 { left: 13%; bottom: 82%; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.average .dot.dot4 { left: 43%; bottom: 78%; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.average .dot.dot5 { left: 63%; bottom: 62.5%; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.average .dot.dot6 { left: 77%; bottom: 95%; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.average .dot.dot7 { left: 77.5%; bottom: 74%; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.average .dot.dot8 { left: 88%; bottom: 72%; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.average .dot.dot9 { left: 72%; bottom: 74%; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.average .dot.dot10 { left: 52%; bottom: 52%; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.average .dot.dot11 { left: 16.5%; bottom: 50%; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.maximum .dot { background: #F7685B; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.maximum .dot.dot1 { left: 13%; bottom: 11%; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.maximum .dot.dot2 { left: 16.5%; bottom: 29%; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.maximum .dot.dot3 { left: 13%; bottom: 82%; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.maximum .dot.dot4 { left: 43%; bottom: 78%; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.maximum .dot.dot5 { left: 63%; bottom: 62.5%; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.maximum .dot.dot6 { left: 77%; bottom: 95%; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.maximum .dot.dot7 { left: 77.5%; bottom: 74%; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.maximum .dot.dot8 { left: 88%; bottom: 72%; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.maximum .dot.dot9 { left: 72%; bottom: 74%; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.maximum .dot.dot10 { left: 52%; bottom: 52%; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.maximum .dot.dot11 { left: 16.5%; bottom: 50%; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.lowest .dot { background: #3BC1FF; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.lowest .dot.dot1 { left: 13%; bottom: 11%; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.lowest .dot.dot2 { left: 16.5%; bottom: 29%; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.lowest .dot.dot3 { left: 13%; bottom: 82%; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.lowest .dot.dot4 { left: 43%; bottom: 78%; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.lowest .dot.dot5 { left: 63%; bottom: 62.5%; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.lowest .dot.dot6 { left: 77%; bottom: 95%; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.lowest .dot.dot7 { left: 77.5%; bottom: 74%; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.lowest .dot.dot8 { left: 88%; bottom: 72%; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.lowest .dot.dot9 { left: 72%; bottom: 74%; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.lowest .dot.dot10 { left: 52%; bottom: 52%; }
+
+.chapter4-wrap__explanation .chapter4-graph__box .dot-group.lowest .dot.dot11 { left: 16.5%; bottom: 50%; }
 /*# sourceMappingURL=style.css.map */
